@@ -19,16 +19,3 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-
-  download:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: download text file from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: hello-artifact
-          path: ./artifacts
-
-      - name: display hello-txt contents
-        run: cat ./artifact/hello.txt
